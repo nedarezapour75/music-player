@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SASS music player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ga+Maamli&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/bootstrap-rtl.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/baics.css" />
+  </head>
+  <body>
+    <div class="container" id="container">
+      <div class="row">
+        <div class="card">
+          <div class="card-header">
+            <div class="menu">
+              <button
+                type="button"
+                class="btn"
+                data-toggle="modal"
+                data-target=".bd-example-modal-lg"
+              >
+                <span class="material-symbols-rounded"> search </span>
+              </button>
+              <div
+                class="modal fade bd-example-modal-lg"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="myLargeModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <input type="text" /> <button>search</button>
+                  </div>
+                </div>
+              </div>
+              <div class="dropdown show">
+                <a
+                  class="btn dropdown-toggle"
+                  href="#"
+                  role="button"
+                  id="dropdownMenuLink"
+                  data-toggle="dropdown"
+                  style="border-radius: 0%"
+                >
+                  <span class="material-symbols-rounded"> menu </span>
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="#">songs</a>
+                  <a class="dropdown-item" href="#">Albums</a>
+                  <a class="dropdown-item" href="#"> Artists </a>
+                </div>
+              </div>
+            </div>
+            <img src="assets/img/theend.jpg" alt="" />
+            <div class="song-details">
+              <h1 class="artist">Graham Coxon</h1>
+              <h2 class="song-name">In my room</h2>
+              <audio src="In My Room.mp3" id="song"></audio>
+              <input type="range" value="0" id="progress" />
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="song-details">
+              <div class="artist" data-aos="fade-up"
+              data-aos-anchor-placement="top-bottom">In my room</div>
+              <div class="song-name" data-aos="fade-up"
+              data-aos-anchor-placement="top-bottom">Graham Coxon</div>
+            </div>
+            <div class="controls">
+              <i class="fa-solid fa-forward-step"></i>
+              <i
+                onclick="playPause()"
+                class="fa-solid fa-play"
+                id="ctrlIcon"
+              ></i>
+              <!-- <i class="fa-solid fa-pause"></i> -->
+              <i class="fa-solid fa-backward-step"></i>
+            </div>
+            <div class="playactions">
+              <span class="material-symbols-rounded"> shuffle </span>
+              <span class="material-symbols-rounded"> replay </span>
+              <span class="material-symbols-rounded"> more_horiz </span>
+              <span class="material-symbols-rounded"> favorite </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/df4c2609b9.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.rtlcss.com/bootstrap/v4.5.3/js/bootstrap.bundle.min.js"
+      integrity="sha384-40ix5a3dj6/qaC7tfz0Yr+p9fqWLzzAXiwxVLt9dw7UjQzGYw6rWRhFAnRapuQyK"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="assets/js/javaScript.js"></script>
+  </body>
+</html>

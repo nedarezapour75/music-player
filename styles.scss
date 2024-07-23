@@ -1,0 +1,250 @@
+//variable
+$font-size: 16px;
+$font-color: #101338;
+$box-shadow: 7px 8px 14px rgb(205 199 199 / 50%);
+$btn-color: #909090;
+$btn-shadow: 0px 3px 8px rgba(159, 159, 159, 0.5);
+$btn-active: #90cbe0;
+$btn-transition: color 0.8s ease;
+//public styles
+//mixins
+@mixin flex($flex: flex, $position-x: center, $position-y: center) {
+  display: $flex;
+  justify-content: $position-x;
+  align-items: $position-y;
+}
+@mixin margin-padding($top, $right, $bottom, $left, $margin: false) {
+  @if ($margin) {
+    margin: $top $right $bottom $left;
+  } @else {
+    padding: $top $right $bottom $left;
+  }
+}
+
+@mixin section-creator($flex: flex, $flex-basis, $max-width) {
+  display: flex;
+  flex-basis: flex-basis;
+  max-width: $max-width;
+}
+@mixin border-radious($top-left, $top-right, $bottom-right, $bottom-left) {
+  border-radius: $top-left $top-right $bottom-right $bottom-left;
+}
+
+//reset
+@font-face {
+  font-family: Roboto;
+  src: url(assets/fonts/Roboto-Light.ttf) format("ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+* {
+  font-family: Roboto;
+  direction: rtl;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  max-width: 390px;
+  margin: auto;
+  position: relative;
+  height: 844px;
+}
+.row {
+  @include flex(flex, center, null);
+}
+.img-fluid {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.mt-250 {
+  margin-top: 250px;
+}
+span,
+i {
+  cursor: pointer;
+}
+
+//styles
+#container {
+  background-color: #e0edf6;
+@include flex(flex, center, center);
+  .row {
+    .card {
+      box-shadow: $box-shadow;
+      background-color: #ffffff;
+      @include border-radious(5px, 5px, 0px, 0px);
+      width: 330px;
+      @include margin-padding(10px,0 ,30px ,0  ,true );
+      .card-header {
+        background-color: #e8e8e8;
+        @include border-radious(5px, 5px, 5px, 5px);
+        img {
+          width: 400px;
+          @include margin-padding(5px, 45px, 0, 45px, false);
+          filter: contrast(0.76);
+          width: 300px;        
+        }
+        .menu {
+          @include flex(flex, space-between, flex-start);
+          @include margin-padding(10px, 15px, 5px, 15px, false);
+          font-size: $font-size + 3px;
+          position: relative;
+          .dropdown-toggle {
+            border: none;
+            left: 50px;
+            background-color:#e8e8e8;
+            &::after {
+              display: none;
+            }
+          }
+          .show {
+            background-color: rgba($color: white, $alpha: 0.8);
+          }
+          span {
+            color: white;
+            font-size: $font-size + 12px;
+            transition: $btn-transition;
+            &:hover,
+            &:focus {
+              color: $btn-active;
+            }
+          }
+          .dropdown {
+            border-radius: 0% !important;
+            .dropdown-item {
+              text-align: center;
+            }
+          }
+
+         .modal{
+          .modal-content {
+            position: relative;
+            border: none;
+            input {
+              outline: none;
+              border: 1px solid white;
+              padding: 1px;
+            }
+            button {
+              position: absolute;
+              border: none;
+              padding: 2px 10px;
+              color: $btn-color;
+            }
+          }
+         }
+        }
+        .song-details {
+          @include flex(flex, center, center);
+          flex-direction: column;
+          color: $font-color;
+          .artist {
+            @include margin-padding(10px,0 , 2px, 0, true);
+            font-family: "Ga Maamli", sans-serif;
+            font-size: $font-size + 10px;
+          }
+          .song-name {
+            font-family: "Ga Maamli", sans-serif;
+            font-size: $font-size + 2px;
+          }
+          #progress{
+            -webkit-appearance: none;
+            width: 90%;
+            height: 4px;
+            border-radius: 4px;
+            background-color: $btn-active;
+            @include margin-padding(10px, 10px,10px , 10px, true);
+            &::-webkit-slider-thumb{
+              -webkit-appearance: none;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background-color: white;
+box-shadow: $btn-shadow;
+            }
+          }
+        }
+      }
+      .card-body {
+        @include flex(flex, center, center);
+        flex-direction: column;
+        text-align: center;
+        .artist {
+          color: #137599;
+          font-size: $font-size + 5px;
+          @include margin-padding(0, 0, 10px, 0, false);
+        }
+        .song-name {
+          color: #68707d;
+        }
+        .controls {
+          @include margin-padding(40px, 0, 100px, 0, true);
+          position: relative;
+          i:nth-child(1) {
+            position: absolute;
+            font-size: $font-size - 2px;
+            top: -5px;
+            left: 54px;
+            color: $btn-color;
+            padding: 17px;
+            border-radius: 50%;
+            box-shadow: $box-shadow;
+            transition: $btn-transition;
+            &:hover {
+              color: $btn-active;
+            }
+          }
+          i:nth-child(2) {
+            position: absolute;
+            font-size: $font-size + 12px;
+            top: -12px;
+            left: -25px;
+            /* background-color: white; */
+            padding: 17px;
+            border-radius: 50%;
+            box-shadow: $btn-shadow;
+            color: $btn-color;
+            transition: $btn-transition;
+            &:hover {
+              color: $btn-active;
+            }
+          }
+          i:nth-child(3) {
+            position: absolute;
+            font-size: $font-color -2px;
+            top: -5px;
+            right: 54px;
+            color: $btn-color;
+            padding: 17px;
+            border-radius: 50%;
+            box-shadow: $btn-shadow;
+            transition: $btn-transition;
+            &:hover {
+              color: $btn-active;
+            }
+          }
+        }
+        .playactions {
+          color: #909090;
+          span {
+            @include margin-padding(10px, 10px, 10px, 30px, true);
+            color: #c3c3c3;
+            transition: $btn-transition;
+            &:hover {
+              color: $btn-active;
+            }
+          }
+        }
+      }
+    }
+  }
+}
